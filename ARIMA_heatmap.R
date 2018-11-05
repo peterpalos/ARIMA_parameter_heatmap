@@ -52,12 +52,12 @@ merged <- select(merged, 4:6)
 
 ### Plotting
 
-heatmap <- ggplot( merged, aes( P_value.y, Q_value.y ) ) +
+heatmap_p_q <- ggplot( merged, aes( P_value.y, Q_value.y ) ) +
   labs(title = "1000 long time series p-q estimation", x = "p value", y = "q value") +
   geom_tile ( aes ( fill = Dens ), colour = "grey") + 
   scale_x_continuous(breaks = round( seq( 0, 5))) +
   scale_y_continuous(breaks = round( seq( 0, 5))) +
   scale_fill_gradient(low = "white",  high = "darkolivegreen", na.value = "white")
 
-plot( heatmap )
+plot( heatmap_p_q )
 
