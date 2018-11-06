@@ -1,4 +1,5 @@
 
+# co-author: Aron Hartvig
 
 #install.packages("plyr")
 #install.packages("xts")
