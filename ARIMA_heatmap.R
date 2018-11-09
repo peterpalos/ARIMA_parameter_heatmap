@@ -1,18 +1,18 @@
 
 # co-author: Aron Hartvig
 
-#install.packages("plyr")
-#install.packages("xts")
-#install.packages("forecast")
-#install.packages("tseries")
-#install.packages("dplyr")
-#install.packages("ggplot2")
-library(plyr)
-library( forecast )
-library( tseries )
-library( xts )
+#install.packages( "plyr")
+#install.packages( "xts")
+#install.packages( "forecast")
+#install.packages( "tseries")
+#install.packages( "dplyr")
+#install.packages( "ggplot2")
+library( plyr)
+library( forecast)
+library( tseries)
+library( xts)
 library( dplyr)
-library( ggplot2 )
+library( ggplot2)
 
 
 
