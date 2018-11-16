@@ -20,22 +20,21 @@ library( ggplot2)
 dataGenerator <- function( leng = 1000){
   RawData <- as.xts( ts( arima.sim( n = leng, list( ar = c( 0.7, -0.5), ma = c( -0.2, 0.2, 0.5)))))
   model <- auto.arima( RawData)
-  result <- model$arma[1:2]
+  result <- model$arma[ 1:2]
   return( result)
 }
 
 # Run the function, rep(time series length, number of estimation)
-list_of_p_q <- lapply( rep( 1000, 1000 ), dataGenerator )
-
+estimation_of_p_q <- sapply( rep( 1000, 1000), dataGenerator)
 
 
 ### Formatting the dataset
 
 # calculate all possible p-q combination
-all_possible_pq <- expand.grid( p_value = 0:5, q_value = 0:5 )
+all_possible_pq <- expand.grid( p_value = 0:5, q_value = 0:5)
 
-# formatting the output of the dataGenerator function to a 2 column df from a list
-p_q_data <- do.call(rbind,list_of_p_q) %>%
+# formatting the output of the dataGenerator function
+p_q_data <- t( estimation_of_p_q) %>%
   as.data.frame()
 colnames( p_q_data) <- c( "p_value", "q_value")
 
@@ -58,6 +57,6 @@ heatmap_p_q <- ggplot( merged, aes( p_value, q_value)) +
   scale_y_continuous(breaks = round( seq( 0, 5))) +
   scale_fill_gradient(low = "white",  high = "darkolivegreen", na.value = "white")
 
-plot( heatmap_p_q )
+plot( heatmap_p_q)
 
 
